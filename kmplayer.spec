@@ -7,6 +7,7 @@ License:	GPL
 Group:		X11/Applications/Multimedia
 #Icon:		-
 Source0:	http://www.xs4all.nl/~jjvrieze/%{name}-%{version}.tar.bz2
+Source1:	%{name}.png
 URL:		http://www.xs4all.nl/~jjvrieze/kmplayer.html
 BuildRequires:	kdelibs-devel >= 3.1	
 BuildRequires:	mplayer
@@ -35,9 +36,11 @@ kde_icondir="%{_pixmapsdir}"; export kde_icondir
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT
 
 %{__make} install DESTDIR=$RPM_BUILD_ROOT
+
+install -d $RPM_BUILD_ROOT%{_pixmapsdir}
+install %{SOURCE1} $RPM_BUILD_ROOT%{_pixmapsdir}
 
 %find_lang	%{name}		--with-kde	
 
@@ -57,3 +60,4 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/mimelnk/video/*
 %{_datadir}/services/kmplayer_component.desktop
 %{_applnkdir}/Multimedia/kmplayer.desktop
+%{_pixmapsdir}/kmplayer.png
