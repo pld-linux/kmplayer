@@ -24,6 +24,7 @@ BuildRequires:	artsc-devel
 BuildRequires:	kdelibs-devel >= 9:3.1.92
 %{?with_koffice:BuildRequires:	koffice-devel}
 BuildRequires:	rpmbuild(macros) >= 1.129	
+BuildRequires:	sed >= 4.0
 BuildRequires:	xine-lib-devel >= 1:1.0	
 BuildRequires:	unsermake
 Requires:	kdebase-core >= 9:3.1.90
@@ -53,6 +54,10 @@ Integracja kmplayera z koffice.
 
 %prep
 %setup -q -n %{name}-%{version}-%{_rc}
+
+%{__sed} -i -e 's/Categories=.*/Categories=Qt;KDE;AudioVideo;Player;/' \
+        src/kmplayer.desktop \
+
 #%patch0 -p1
 
 %build
