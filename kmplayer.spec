@@ -32,10 +32,12 @@ Requires:	mplayer
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
-A powerful, fully integrated with KDE MPlayer/Xine/ffmpeg/ffserver/VDR GUI.
+A powerful, fully integrated with KDE MPlayer/Xine/ffmpeg/ffserver/VDR
+GUI.
 
 %description -l pl
-W pe³ni zintegrowany z KDE frontend dla programów MPlayer/Xine/ffmpeg/ffserver/VDR.
+W pe³ni zintegrowany z KDE frontend dla programów
+MPlayer/Xine/ffmpeg/ffserver/VDR.
 
 %package koffice
 Summary:	Kmplayer integration with Koffice
