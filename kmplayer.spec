@@ -2,7 +2,7 @@
 %bcond_with koffice	# Build koffice plugin
 
 %define		_ver		0.83
-%define		_snap		040527
+%define		_snap		040705
 %define		_packager	adgor
 
 Summary:	A KDE mplayer frontend
@@ -102,12 +102,15 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/config/kmplayerrc
 %{_datadir}/mimelnk/application/x-kmplayer.desktop
 # Messing ones
-##%{_datadir}/mimelnk/application/x-mplayer2.desktop
-##%{_datadir}/mimelnk/audio/x-ms-wma.desktop
+#%{_datadir}/mimelnk/application/x-mplayer2.desktop
+#%{_datadir}/mimelnk/audio/x-ms-wma.desktop
 %{_datadir}/mimelnk/video/x-ms-wmp.desktop
+%{_datadir}/services/kmplayer_part.desktop
+%{_datadir}/services/pnm.protocol
 # Already in kdelibs
 #%{_datadir}/mimelnk/video/x-ms-wmv.desktop
-%{_datadir}/services/kmplayer_part.desktop
+#%{_datadir}/services/mms.protocol
+#%{_datadir}/services/rtsp.protocol
 %{_desktopdir}/kde/kmplayer.desktop
 %{_iconsdir}/[!l]*/*/apps/kmplayer.png
 
