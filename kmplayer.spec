@@ -3,20 +3,20 @@
 
 %define		_ver		0.8.4
 %define		_snap		%{nil}
-%define		_rc		rc3
+%define		_rc		rc5
 
 Summary:	A KDE MPlayer/Xine/ffmpeg/ffserver/VDR frontend
 Summary(pl):	Frontend dla programów MPlayer/Xine/ffmpeg/ffserver/VDR pod KDE
 Name:		kmplayer
 Version:	%{_ver}
-Release:	0.%{_rc}.1
+Release:	0.%{_rc}.0.1
 Epoch:		2
 License:	GPL
 Group:		X11/Applications/Multimedia
 # From kdeextragear-2 kde cvs module
 #Source0:	ftp://ftp.pld-linux.org/software/kde/%{name}-%{_snap}.tar.bz2
 Source0:        http://www.xs4all.nl/~jjvrieze/%{name}-%{version}-%{_rc}.tar.bz2
-# Source0-md5:	6f5a89baf765ebb368b48158e523ce57
+# Source0-md5:	c15d792dc40c81a015262bad6323b053
 Patch0:		%{name}-mimetypes.patch
 URL:		http://www.xs4all.nl/~jjvrieze/kmplayer.html
 BuildRequires:	arts-qt-devel
