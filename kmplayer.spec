@@ -9,7 +9,7 @@ Summary:	A KDE MPlayer/Xine/ffmpeg/ffserver/VDR frontend
 Summary(pl):	Frontend dla programów MPlayer/Xine/ffmpeg/ffserver/VDR pod KDE
 Name:		kmplayer
 Version:	%{_ver}
-Release:	0.%{_rc}.0.1
+Release:	0.%{_rc}.1
 Epoch:		2
 License:	GPL
 Group:		X11/Applications/Multimedia
@@ -65,7 +65,7 @@ cp /usr/share/automake/config.sub admin
 
 export UNSERMAKE=/usr/share/unsermake/unsermake
 
-%{__make} -f admin/Makefile.common cvs 
+#%{__make} -f admin/Makefile.common cvs 
 
 %configure \
 	--disable-rpath \
