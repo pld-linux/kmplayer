@@ -12,7 +12,7 @@ URL:		http://www.xs4all.nl/~jjvrieze/kmplayer.html
 BuildRequires:	kdelibs-devel >= 3.1	
 BuildRequires:	mplayer
 Requires:	mplayer
-Requires:	kdelibs >= 3.2
+Requires:	kdebase-core >= 3.2
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_htmldir	%{_docdir}/kde/HTML
