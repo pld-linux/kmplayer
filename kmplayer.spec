@@ -17,6 +17,7 @@ Source0:        http://www.xs4all.nl/~jjvrieze/%{name}-%{version}.tar.bz2
 URL:		http://www.xs4all.nl/~jjvrieze/kmplayer.html
 BuildRequires:	arts-qt-devel
 BuildRequires:	artsc-devel
+BuildRequires:	gstreamer-plugins-devel
 BuildRequires:	kdelibs-devel >= 9:3.1.92
 %{?with_koffice:BuildRequires:	koffice-devel}
 BuildRequires:	rpmbuild(macros) >= 1.129	
