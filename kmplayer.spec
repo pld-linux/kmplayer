@@ -2,7 +2,7 @@
 Summary:	A KDE mplayer frontend
 Summary(pl):	Frontend do mplayera pod KDE
 Name:		kmplayer
-Version:	0.7.4
+Version:	0.7.4a
 Release:	1
 License:	GPL
 Group:		X11/Applications/Multimedia
