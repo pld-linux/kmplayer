@@ -8,7 +8,7 @@ Summary:	A KDE mplayer frontend
 Summary(pl):	Frontend do mplayera pod KDE
 Name:		kmplayer
 Version:	%{_ver}
-Release:	1
+Release:	2
 Epoch:		2
 License:	GPL
 Group:		X11/Applications/Multimedia
@@ -73,6 +73,9 @@ rm -rf $RPM_BUILD_ROOT
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT \
 	kde_htmldir=%{_kdedocdir}
+
+# remove bogus translation
+rm -rf $RPM_BUILD_ROOT%{_datadir}/locale/xx
 
 %find_lang	%{name}		--with-kde	
 
