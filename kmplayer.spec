@@ -1,7 +1,9 @@
 
+%bcond_with koffice	# Build koffice plugin
+
 %define		_ver		0.9
-%define		_snap		040418
-%define		_packager	djurban
+%define		_snap		040511
+%define		_packager	adgor
 
 Summary:	A KDE mplayer frontend
 Summary(pl):	Frontend do mplayera pod KDE
@@ -12,12 +14,13 @@ License:	GPL
 Group:		X11/Applications/Multimedia
 # From kdeextragear-2 kde cvs module
 Source0:	http://ep09.pld-linux.org/~%{_packager}/kde/%{name}-%{_snap}.tar.bz2
-# Source0-md5:	66fb9824c31a93c1f60ef797e4bb2756
+# Source0-md5:	a97adf478276aff684cc4cbbe379ce4a
 Patch0:		%{name}-mimetypes.patch
 URL:		http://www.xs4all.nl/~jjvrieze/kmplayer.html
 BuildRequires:	arts-qt-devel
 BuildRequires:	artsc-devel
 BuildRequires:	kdelibs-devel >= 9:3.1.92
+%{?with_koffice:BuildRequires:	koffice-devel}
 BuildRequires:	rpmbuild(macros) >= 1.129	
 BuildRequires:	xine-lib-devel >= 1:1.0	
 BuildRequires:	unsermake
@@ -36,7 +39,6 @@ Summary:	Kmplayer integration with Koffice
 Summary(pl):	Integracja kmplayera z koffice
 Group:		X11/Applications/Multimedia
 Requires:	koffice-common
-BuildRequires:	koffice-devel
 
 %description koffice
 Kmplayer integration with Koffice.
@@ -56,8 +58,10 @@ export UNSERMAKE=/usr/share/unsermake/unsermake
 %{__make} -f admin/Makefile.common cvs 
 
 %configure \
-	--with-qt-libraries=%{_libdir} \
-	--enable-koffice-plugin 
+	--disable-rpath \
+	--enable-final \
+	%{?with_koffice:--enable-koffice-plugin} \
+	--with-qt-libraries=%{_libdir}
 
 %{__make}
 
@@ -66,9 +70,16 @@ rm -rf $RPM_BUILD_ROOT
 
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT \
-	kde_htmldir=%{_kdedocdir} 	
+	kde_htmldir=%{_kdedocdir}
 
-#%find_lang	%{name}		--with-kde	
+# Workaround for doc caches (unsermake bug?)
+cd doc
+for i in `find . -name index.cache.bz2`; do
+	install -c -p -m 644 $i $RPM_BUILD_ROOT%{_kdedocdir}/en/$i
+done
+cd -
+
+%find_lang	%{name}		--with-kde	
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -89,18 +100,20 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/apps/kmplayer
 %{_datadir}/config/kmplayerrc
 %{_datadir}/mimelnk/application/x-kmplayer.desktop
-# Messing one
+# Messing ones
 ##%{_datadir}/mimelnk/application/x-mplayer2.desktop
 ##%{_datadir}/mimelnk/audio/x-ms-wma.desktop
 %{_datadir}/mimelnk/video/x-ms-wmp.desktop
-# Conflicts with kdelibs
+# Already in kdelibs
 #%{_datadir}/mimelnk/video/x-ms-wmv.desktop
 %{_datadir}/services/kmplayer_part.desktop
 %{_desktopdir}/kde/kmplayer.desktop
 %{_iconsdir}/[!l]*/*/apps/kmplayer.png
 
+%if %{with koffice}
 %files koffice
 %defattr(644,root,root,755)
 %{_libdir}/kde3/libkmplayerkofficepart.la
 %attr(755,root,root) %{_libdir}/kde3/libkmplayerkofficepart.so
 %{_datadir}/services/kmplayer_koffice.desktop
+%endif
