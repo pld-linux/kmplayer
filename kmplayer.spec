@@ -1,20 +1,21 @@
 
 %bcond_with koffice	# Build koffice plugin
 
-%define		_ver		0.83
-%define		_snap		040705
+%define		_ver		0.8.3
+%define		_snap		%{nil}
 
 Summary:	A KDE mplayer frontend
 Summary(pl):	Frontend do mplayera pod KDE
 Name:		kmplayer
 Version:	%{_ver}
-Release:	0.%{_snap}.2
-Epoch:		1
+Release:	1
+Epoch:		2
 License:	GPL
 Group:		X11/Applications/Multimedia
 # From kdeextragear-2 kde cvs module
-Source0:	ftp://ftp.pld-linux.org/software/kde/%{name}-%{_snap}.tar.bz2
-# Source0-md5:	a44787557f4c6836559e09400209a180
+#Source0:	ftp://ftp.pld-linux.org/software/kde/%{name}-%{_snap}.tar.bz2
+Source0:        http://www.xs4all.nl/~jjvrieze/%{name}-%{version}.tar.bz2
+# Source0-md5:	b95c3ccb9cd613e18aff59b18c507e69
 Patch0:		%{name}-mimetypes.patch
 URL:		http://www.xs4all.nl/~jjvrieze/kmplayer.html
 BuildRequires:	arts-qt-devel
@@ -48,7 +49,7 @@ Kmplayer integration with Koffice.
 Integracja kmplayera z koffice.
 
 %prep
-%setup -q -n %{name}-%{_snap}
+%setup -q
 #%patch0 -p1
 
 %build
@@ -73,13 +74,6 @@ rm -rf $RPM_BUILD_ROOT
 	DESTDIR=$RPM_BUILD_ROOT \
 	kde_htmldir=%{_kdedocdir}
 
-# Workaround for doc caches (unsermake bug?)
-cd doc
-for i in `find . -name index.cache.bz2`; do
-	install -c -p -m 644 $i $RPM_BUILD_ROOT%{_kdedocdir}/en/$i
-done
-cd -
-
 %find_lang	%{name}		--with-kde	
 
 %clean
@@ -87,7 +81,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files -f %{name}.lang
 %defattr(644,root,root,755)
-%doc kmplayer/{AUTHORS,ChangeLog,README,TODO}
+%doc AUTHORS ChangeLog README
 %attr(755,root,root) %{_bindir}/kmplayer
 %attr(755,root,root) %{_bindir}/kxineplayer
 %{_libdir}/libkdeinit_kmplayer.la
@@ -101,14 +95,15 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/apps/kmplayer
 %{_datadir}/config/kmplayerrc
 %{_datadir}/mimelnk/application/x-kmplayer.desktop
+%{_datadir}/mimelnk/video/x-ms-wmp.desktop
+%{_datadir}/services/kmplayer_part.desktop
 # Messing ones
 #%{_datadir}/mimelnk/application/x-mplayer2.desktop
 #%{_datadir}/mimelnk/audio/x-ms-wma.desktop
-%{_datadir}/mimelnk/video/x-ms-wmp.desktop
-%{_datadir}/services/kmplayer_part.desktop
 # Already in kdelibs
 #%{_datadir}/mimelnk/video/x-ms-wmv.desktop
 #%{_datadir}/services/mms.protocol
+#%{_datadir}/services/pnm.protocol
 #%{_datadir}/services/rtsp.protocol
 %{_desktopdir}/kde/kmplayer.desktop
 %{_iconsdir}/[!l]*/*/apps/kmplayer.png
