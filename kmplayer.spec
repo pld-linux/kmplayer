@@ -8,7 +8,7 @@ Summary:	A KDE mplayer frontend
 Summary(pl):	Frontend do mplayera pod KDE
 Name:		kmplayer
 Version:	%{_ver}
-Release:	0.%{_snap}.1
+Release:	0.%{_snap}.2
 Epoch:		1
 License:	GPL
 Group:		X11/Applications/Multimedia
@@ -25,6 +25,7 @@ BuildRequires:	rpmbuild(macros) >= 1.129
 BuildRequires:	xine-lib-devel >= 1:1.0	
 BuildRequires:	unsermake
 Requires:	kdebase-core >= 9:3.1.90
+Requires:	kdelibs >= 9:3.3.0-2
 Requires:	mplayer
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -105,7 +106,6 @@ rm -rf $RPM_BUILD_ROOT
 #%{_datadir}/mimelnk/audio/x-ms-wma.desktop
 %{_datadir}/mimelnk/video/x-ms-wmp.desktop
 %{_datadir}/services/kmplayer_part.desktop
-%{_datadir}/services/pnm.protocol
 # Already in kdelibs
 #%{_datadir}/mimelnk/video/x-ms-wmv.desktop
 #%{_datadir}/services/mms.protocol
