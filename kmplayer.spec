@@ -5,8 +5,8 @@
 %define		_snap		%{nil}
 %define		_rc		rc3
 
-Summary:	A KDE mplayer frontend
-Summary(pl):	Frontend do mplayera pod KDE
+Summary:	A KDE MPlayer/Xine/ffmpeg/ffserver/VDR frontend
+Summary(pl):	Frontend dla programów MPlayer/Xine/ffmpeg/ffserver/VDR pod KDE
 Name:		kmplayer
 Version:	%{_ver}
 Release:	0.%{_rc}.1
@@ -32,10 +32,10 @@ Requires:	mplayer
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
-A powerful, fully integrated with KDE mplayer GUI.
+A powerful, fully integrated with KDE MPlayer/Xine/ffmpeg/ffserver/VDR GUI.
 
 %description -l pl
-W pe³ni zintegrowany z KDE frontend do mplayera.
+W pe³ni zintegrowany z KDE frontend dla programów MPlayer/Xine/ffmpeg/ffserver/VDR.
 
 %package koffice
 Summary:	Kmplayer integration with Koffice
