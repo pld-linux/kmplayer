@@ -1,19 +1,17 @@
 Summary:	A KDE mplayer frontend
 Summary(pl):	Frontend do mplayera pod KDE
 Name:		kmplayer
-Version:	0.6.1
-Release:	2
+Version:	0.6.5a
+Release:	1
 License:	GPL
 Group:		X11/Applications/Multimedia
 #Icon:		-
 Source0:	http://www.xs4all.nl/~jjvrieze/%{name}-%{version}.tar.bz2
 URL:		http://www.xs4all.nl/~jjvrieze/kmplayer.html
 BuildRequires:	kdelibs-devel >= 3.1	
-BuildRequires:	arts >= 1.0
 BuildRequires:	mplayer
 Requires:	mplayer
 Requires:	kdelibs >= 3.1
-Requires:	arts >= 1.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_htmldir	/usr/share/doc/kde/HTML
