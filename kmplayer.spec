@@ -63,7 +63,7 @@ Integracja kmplayera z koffice.
 %build
 cp /usr/share/automake/config.sub admin
 
-export UNSERMAKE=/usr/share/unsermake/unsermake
+#export UNSERMAKE=/usr/share/unsermake/unsermake
 
 #%{__make} -f admin/Makefile.common cvs 
 
@@ -96,6 +96,7 @@ rm -rf $RPM_BUILD_ROOT
 %doc AUTHORS ChangeLog README
 %attr(755,root,root) %{_bindir}/kmplayer
 %attr(755,root,root) %{_bindir}/kxineplayer
+%attr(755,root,root) %{_bindir}/kxvplayer
 %{_libdir}/libkdeinit_kmplayer.la
 %attr(755,root,root) %{_libdir}/libkdeinit_kmplayer.so
 %{_libdir}/libkmplayercommon.la
@@ -117,7 +118,7 @@ rm -rf $RPM_BUILD_ROOT
 #%{_datadir}/services/pnm.protocol
 #%{_datadir}/services/rtsp.protocol
 %{_desktopdir}/kde/kmplayer.desktop
-%{_iconsdir}/[!l]*/*/apps/kmplayer.png
+%{_iconsdir}/[!l]*/*/apps/kmplayer.*
 
 %if %{with koffice}
 %files koffice
