@@ -1,14 +1,14 @@
---- kmplayer/kmplayer/kmplayer.desktop~	Sat Jan 11 21:44:30 2003
-+++ kmplayer/kmplayer/kmplayer.desktop	Fri Apr  4 12:12:35 2003
+--- kmplayer/kmplayer/kmplayer.desktop~	2003-04-13 16:48:36.000000000 +0200
++++ kmplayer/kmplayer/kmplayer.desktop	2003-04-19 00:34:03.000000000 +0200
 @@ -1,4 +1,3 @@
 -# KDE Config File  
  [Desktop Entry]
  Encoding=UTF-8
  Type=Application
-@@ -10,6 +9,6 @@
+@@ -14,6 +13,6 @@
  Terminal=0
  Name=KMPlayer
- Name[nl]=KMultiMediaSpeler
+ Name[sv]=Kmplayer
 -MimeType=audio/x-mp3;audio/x-vorbis;application/x-mplayer2;application/x-ogg;audio/x-mp2;video/mpeg;audio/x-mpegurl;audio/x-wav;audio/x-mod;video/x-avi;video/x-ms-asf;video/x-ms-wmv;video/x-msvideo;video/quicktime;video/x-flic;
 +MimeType=application/vnd.ms-asf;application/x-mplayer2;application/x-ogg;audio/vnd.rn-realaudio;audio/x-mp2;audio/x-mp3;audio/x-mpegurl;audio/x-mod;audio/x-pn-realaudio;audio/x-wav;audio/x-vorbis;video/mpeg;video/quicktime;video/x-avi;video/x-flic;video/x-ms-asf;video/x-ms-wmv;video/x-msvideo;
  Terminal=0
