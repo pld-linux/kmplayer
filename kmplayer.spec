@@ -1,23 +1,23 @@
+#
+# TODO:
+# - add locales to %files
+#
 
 %bcond_with koffice	# Build koffice plugin
-
-%define		_ver		0.8.4
-%define		_snap		%{nil}
-%define		_rc		rc5
 
 Summary:	A KDE MPlayer/Xine/ffmpeg/ffserver/VDR frontend
 Summary(pl):	Frontend dla programów MPlayer/Xine/ffmpeg/ffserver/VDR pod KDE
 Name:		kmplayer
-Version:	%{_ver}
-Release:	0.%{_rc}.1
+Version:	0.8.4
+Release:	0.1
 Epoch:		2
 License:	GPL
 Group:		X11/Applications/Multimedia
 # From kdeextragear-2 kde cvs module
 #Source0:	ftp://ftp.pld-linux.org/software/kde/%{name}-%{_snap}.tar.bz2
-Source0:        http://www.xs4all.nl/~jjvrieze/%{name}-%{version}-%{_rc}.tar.bz2
-# Source0-md5:	c15d792dc40c81a015262bad6323b053
-Patch0:		%{name}-mimetypes.patch
+Source0:        http://www.xs4all.nl/~jjvrieze/%{name}-%{version}.tar.bz2
+# Source0-md5:	a2d9c1448b1de814be8b486364bc45b7
+#Patch0:		%{name}-mimetypes.patch
 URL:		http://www.xs4all.nl/~jjvrieze/kmplayer.html
 BuildRequires:	arts-qt-devel
 BuildRequires:	artsc-devel
@@ -53,7 +53,7 @@ Kmplayer integration with Koffice.
 Integracja kmplayera z koffice.
 
 %prep
-%setup -q -n %{name}-%{version}-%{_rc}
+%setup -q
 
 %{__sed} -i -e 's/Categories=.*/Categories=Qt;KDE;AudioVideo;Player;/' \
         src/kmplayer.desktop \
@@ -85,7 +85,7 @@ rm -rf $RPM_BUILD_ROOT
 # remove bogus translation
 rm -rf $RPM_BUILD_ROOT%{_datadir}/locale/xx
 
-#%find_lang	%{name}		--with-kde	
+%find_lang	%{name}		--with-kde	
 
 %clean
 rm -rf $RPM_BUILD_ROOT
