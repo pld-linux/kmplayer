@@ -1,7 +1,3 @@
-#
-# TODO:
-# - add locales to %files
-#
 
 %bcond_with koffice	# Build koffice plugin
 
@@ -9,7 +5,7 @@ Summary:	A KDE MPlayer/Xine/ffmpeg/ffserver/VDR frontend
 Summary(pl):	Frontend dla programów MPlayer/Xine/ffmpeg/ffserver/VDR pod KDE
 Name:		kmplayer
 Version:	0.8.4
-Release:	0.1
+Release:	1
 Epoch:		2
 License:	GPL
 Group:		X11/Applications/Multimedia
@@ -90,10 +86,10 @@ rm -rf $RPM_BUILD_ROOT%{_datadir}/locale/xx
 %clean
 rm -rf $RPM_BUILD_ROOT
 
-#%files -f %{name}.lang
-%files
+%files -f %{name}.lang
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog README
+%attr(755,root,root) %{_bindir}/kgstplayer
 %attr(755,root,root) %{_bindir}/kmplayer
 %attr(755,root,root) %{_bindir}/kxineplayer
 %attr(755,root,root) %{_bindir}/kxvplayer
