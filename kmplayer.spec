@@ -6,6 +6,7 @@ Release:	1
 License:	GPL
 Group:		X11/Applications/Multimedia
 Source0:	http://www.xs4all.nl/~jjvrieze/%{name}-%{version}.tar.bz2
+#Source0-md5:	13cdf0373ae858b0f3a8a63ee67ab87d
 Source1:	%{name}.png
 URL:		http://www.xs4all.nl/~jjvrieze/kmplayer.html
 BuildRequires:	kdelibs-devel >= 3.1	
