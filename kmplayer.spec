@@ -6,7 +6,7 @@ Summary:	A KDE mplayer frontend
 Summary(pl):	Frontend do mplayera pod KDE
 Name:		kmplayer
 Version:	%{_ver}.%{_snap}
-Release:	1
+Release:	2
 License:	GPL
 Group:		X11/Applications/Multimedia
 # From kdeextragear-2 kde cvs module
@@ -34,9 +34,11 @@ W pe³ni zintegrowany z KDE frontend do mplayera.
 %patch0 -p1
 
 %build
+cp -f /usr/share/automake/config.sub admin
 %{__make} -f admin/Makefile.common cvs 
 
-%configure
+%configure \
+	--with-qt-libraries=%{_libdir}
 
 %{__make}
 
