@@ -57,6 +57,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/config/*
 %{_datadir}/mimelnk/application/*
 %{_datadir}/mimelnk/video/*
+%exclude %{_datadir}/mimelnk/video/x-ms-asf.desktop
 %{_datadir}/services/kmplayer_component.desktop
 %{_applnkdir}/Multimedia/kmplayer.desktop
 %{_pixmapsdir}/kmplayer.png
