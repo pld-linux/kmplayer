@@ -14,12 +14,11 @@ Source0:	http://www.kernel.pl/~adgor/kde/%{name}-%{_snap}.tar.bz2
 # Source0-md5:	cf9ead4994fd50784bfd46c53643003c
 Patch0:		%{name}-mimetypes.patch
 URL:		http://www.xs4all.nl/~jjvrieze/kmplayer.html
+BuildRequires:	arts-qt-devel
+BuildRequires:	artsc-devel
 BuildRequires:	kdelibs-devel >= 9:3.1.92
 BuildRequires:	rpmbuild(macros) >= 1.129	
 BuildRequires:	xine-lib-devel >= 1:1.0	
-BuildRequires:	artsc-devel
-BuildRequires:	xrender-devel
-BuildRequires:	arts-qt-devel
 Requires:	kdebase-core >= 9:3.1.90
 Requires:	mplayer
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -35,7 +34,6 @@ W pe³ni zintegrowany z KDE frontend do mplayera.
 %patch0 -p1
 
 %build
-
 %{__make} -f admin/Makefile.common cvs 
 
 %configure
