@@ -2,7 +2,7 @@
 %bcond_with koffice	# Build koffice plugin
 
 %define		_ver		0.83
-%define		_snap		040511
+%define		_snap		040527
 %define		_packager	adgor
 
 Summary:	A KDE mplayer frontend
@@ -15,7 +15,7 @@ License:	GPL
 Group:		X11/Applications/Multimedia
 # From kdeextragear-2 kde cvs module
 Source0:	http://ep09.pld-linux.org/~%{_packager}/kde/%{name}-%{_snap}.tar.bz2
-# Source0-md5:	a97adf478276aff684cc4cbbe379ce4a
+##%% Source0-md5:	a97adf478276aff684cc4cbbe379ce4a
 Patch0:		%{name}-mimetypes.patch
 URL:		http://www.xs4all.nl/~jjvrieze/kmplayer.html
 BuildRequires:	arts-qt-devel
@@ -49,7 +49,7 @@ Integracja kmplayera z koffice.
 
 %prep
 %setup -q -n %{name}-%{_snap}
-%patch0 -p1
+#%patch0 -p1
 
 %build
 cp /usr/share/automake/config.sub admin
