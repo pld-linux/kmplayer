@@ -1,21 +1,33 @@
---- kmplayer-031113/kmplayer/src/kmplayer.desktop.orig	2003-11-13 19:20:16.000000000 +0100
-+++ kmplayer-031113/kmplayer/src/kmplayer.desktop	2003-11-13 20:05:15.000000000 +0100
-@@ -25,6 +25,6 @@
- Name[sr]=Kmpalyer
+--- kmplayer-040418/kmplayer/src/kmplayer.desktop~	2004-04-18 13:31:19.000000000 +0200
++++ kmplayer-040418/kmplayer/src/kmplayer.desktop	2004-04-18 13:58:27.413339032 +0200
+@@ -36,7 +36,7 @@
  Name[sv]=Kmplayer
+ Name[ta]=KM Å¡º¢ôÀÅ÷
  Name[xx]=xxKMPlayerxx
--MimeType=audio/x-mp3;audio/x-vorbis;application/x-mplayer2;application/x-ogg;audio/x-mp2;video/mpeg;audio/x-mpegurl;audio/x-wav;audio/x-mod;video/x-avi;video/x-ms-asf;video/x-ms-wmp;video/x-ms-wmv;video/x-msvideo;video/quicktime;video/x-flic;
-+MimeType=audio/x-mp3;audio/x-vorbis;application/x-ogg;video/mpeg;audio/x-mpegurl;audio/x-wav;audio/x-mod;video/x-ms-asf;video/x-ms-wmp;video/x-ms-wmv;video/x-msvideo;video/quicktime;video/x-flic;
+-MimeType=audio/x-mp3;audio/x-pn-realaudio;audio/x-vorbis;application/x-mplayer2;application/x-ogg;audio/x-mp2;video/mpeg;audio/x-mpegurl;audio/x-wav;audio/x-mod;video/x-avi;video/x-ms-asf;video/x-ms-wmp;video/x-ms-wmv;video/x-msvideo;video/quicktime;video/x-flic;
++MimeType=audio/x-pn-realaudio;audio/vnd.rn-realaudio;audio/x-matroska;audio/x-flac;audio/x-aiff;audio/x-mp2;audio/mp4;audio/mpeg;audio/basic;audio/aac;audio/ac3;audio/x-adpcm;audio/x-ms-wma;audio/x-speex;audio/x-mp3;audio/x-vorbis;application/x-ogg;video/mpeg;audio/x-mpegurl;audio/x-wav;audio/x-mod;video/x-ms-asf;video/x-ms-wmp;video/x-ms-wmv;video/x-msvideo;video/quicktime;video/x-flic;audio/x-oggflac;video/mp4;video/vnd.rm-realvideo;video/x-matroska;video/x-ogm;video/x-theora;
  InitialPreference=7
  Categories=Qt;KDE;AudioVideo
---- kmplayer-031113/kmplayer/src/kmplayer_component.desktop.orig	2003-11-13 19:20:16.000000000 +0100
-+++ kmplayer-031113/kmplayer/src/kmplayer_component.desktop	2003-11-13 20:04:13.000000000 +0100
-@@ -21,7 +21,7 @@
- GenericName[xx]=xxKMPlayerxx
+ GenericName=Media Player
+--- kmplayer-040418/kmplayer/src/kmplayer_koffice.desktop~	2004-04-18 13:31:19.000000000 +0200
++++ kmplayer-040418/kmplayer/src/kmplayer_koffice.desktop	2004-04-18 13:58:45.406603640 +0200
+@@ -8,7 +8,7 @@
+ Name[ta]=KM Å¡º¢ôÀÅ÷
+ Name[xx]=xxKMPlayerxx
+ X-KDE-Library=libkmplayerkofficepart
+-MimeType=audio/x-mp3;audio/x-ms-wma;audio/x-vorbis;application/x-mplayer2;application/x-ogg;audio/x-mp2;video/mpeg;audio/x-mpegurl;audio/x-wav;audio/x-mod;video/x-avi;video/x-ms-asf;video/x-ms-wmp;video/x-ms-wmv;video/x-msvideo;video/quicktime;video/x-flic;
++MimeType=audio/x-pn-realaudio;audio/vnd.rn-realaudio;audio/x-matroska;audio/x-flac;audio/x-aiff;audio/x-mp2;audio/mp4;audio/mpeg;audio/basic;audio/aac;audio/ac3;audio/x-adpcm;audio/x-ms-wma;audio/x-speex;audio/x-mp3;audio/x-vorbis;application/x-ogg;video/mpeg;audio/x-mpegurl;audio/x-wav;audio/x-mod;video/x-ms-asf;video/x-ms-wmp;video/x-ms-wmv;video/x-msvideo;video/quicktime;video/x-flic;audio/x-oggflac;video/mp4;video/vnd.rm-realvideo;video/x-matroska;video/x-ogm;video/x-theora;
+ Type=Service
+ Icon=kmplayer
+ ServiceTypes=KOfficePart,KParts/ReadOnlyPart,KParts/ReadWritePart,Browser/View,KMediaPlayer/Player
+--- kmplayer-040418/kmplayer/src/kmplayer_part.desktop~	2004-04-18 13:31:19.000000000 +0200
++++ kmplayer-040418/kmplayer/src/kmplayer_part.desktop	2004-04-18 13:59:06.640375616 +0200
+@@ -32,7 +32,7 @@
+ Comment[sv]=Insticksprogram för videospelare (fungerar med Quicktime, Xmovie, Windows Media och Realplayer)
  X-KDE-Library=libkmplayerpart
  # Keep in sync with the audio types in kmplayer.desktop
--MimeType=audio/x-mp3;audio/x-ms-wma;audio/x-vorbis;application/x-mplayer2;application/x-ogg;audio/x-mp2;video/mpeg;audio/x-mpegurl;audio/x-wav;audio/x-mod;video/x-avi;video/x-ms-asf;video/x-ms-wmp;video/x-ms-wmv;video/x-msvideo;video/quicktime;video/x-flic;
-+MimeType=audio/x-mp3;audio/x-ms-wma;audio/x-vorbis;application/x-ogg;video/mpeg;audio/x-mpegurl;audio/x-wav;audio/x-mod;video/x-ms-asf;video/x-ms-wmp;video/x-ms-wmv;video/x-msvideo;video/quicktime;video/x-flic;
+-MimeType=audio/x-mp3;audio/x-ms-wma;audio/x-pn-realaudio;audio/x-vorbis;application/x-mplayer2;application/x-ogg;audio/x-mp2;video/mpeg;audio/x-mpegurl;audio/x-wav;audio/x-mod;video/x-avi;video/x-ms-asf;video/x-ms-wmp;video/x-ms-wmv;video/x-msvideo;video/quicktime;video/x-flic;
++MimeType=audio/x-pn-realaudio;audio/vnd.rn-realaudio;audio/x-matroska;audio/x-flac;audio/x-aiff;audio/x-mp2;audio/mp4;audio/mpeg;audio/basic;audio/aac;audio/ac3;audio/x-adpcm;audio/x-ms-wma;audio/x-speex;audio/x-mp3;audio/x-vorbis;application/x-ogg;video/mpeg;audio/x-mpegurl;audio/x-wav;audio/x-mod;video/x-ms-asf;video/x-ms-wmp;video/x-ms-wmv;video/x-msvideo;video/quicktime;video/x-flic;audio/x-oggflac;video/mp4;video/vnd.rm-realvideo;video/x-matroska;video/x-ogm;video/x-theora;
  Type=Service
  Icon=kmplayer
  ServiceTypes=KParts/ReadOnlyPart,Browser/View,KMediaPlayer/Player
