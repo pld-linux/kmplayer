@@ -1,13 +1,13 @@
 
-%define		_ver	0.9
-%define		_snap	040418
-%define		_packager djurban
+%define		_ver		0.9
+%define		_snap		040418
+%define		_packager	djurban
 
 Summary:	A KDE mplayer frontend
 Summary(pl):	Frontend do mplayera pod KDE
 Name:		kmplayer
 Version:	%{_ver}.%{_snap}
-Release:	0.%{_snap}.1
+Release:	1
 License:	GPL
 Group:		X11/Applications/Multimedia
 # From kdeextragear-2 kde cvs module
@@ -48,10 +48,10 @@ Integracja kmplayera z koffice.
 %patch0 -p1
 
 %build
-kde_htmldir="%{_kdedocdir}"; export kde_htmldir
-kde_icondir="%{_iconsdir}"; export kde_icondir
 cp /usr/share/automake/config.sub admin
+
 export UNSERMAKE=/usr/share/unsermake/unsermake
+
 %{__make} -f admin/Makefile.common cvs 
 
 %configure \
