@@ -9,7 +9,7 @@ Source0:	http://www.xs4all.nl/~jjvrieze/%{name}-%{version}.tar.bz2
 # Source0-md5:	a6134dc6ed9ed3bcc2f8d3ddff94a10c
 Source1:	%{name}.png
 URL:		http://www.xs4all.nl/~jjvrieze/kmplayer.html
-BuildRequires:	kdelibs-devel >= 3.1	
+BuildRequires:	kdelibs-devel >= 3.1
 BuildRequires:	mplayer
 Requires:	mplayer
 Requires:	kdelibs >= 3.1
@@ -42,7 +42,7 @@ rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT%{_pixmapsdir}
 install %{SOURCE1} $RPM_BUILD_ROOT%{_pixmapsdir}
 
-%find_lang	%{name}		--with-kde	
+%find_lang	%{name}		--with-kde
 
 %clean
 rm -rf $RPM_BUILD_ROOT
