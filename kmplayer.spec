@@ -1,7 +1,7 @@
 
 %bcond_with koffice	# Build koffice plugin
 
-%define		_ver		0.9
+%define		_ver		0.83
 %define		_snap		040511
 %define		_packager	adgor
 
@@ -9,7 +9,8 @@ Summary:	A KDE mplayer frontend
 Summary(pl):	Frontend do mplayera pod KDE
 Name:		kmplayer
 Version:	%{_ver}.%{_snap}
-Release:	1
+Release:	0.%{_snap}.1
+Epoch:		1
 License:	GPL
 Group:		X11/Applications/Multimedia
 # From kdeextragear-2 kde cvs module
