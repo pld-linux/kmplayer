@@ -3,7 +3,7 @@
 
 %define		_ver		0.8.4
 %define		_snap		%{nil}
-%define		_rc		rc2
+%define		_rc		rc3
 
 Summary:	A KDE mplayer frontend
 Summary(pl):	Frontend do mplayera pod KDE
@@ -16,7 +16,7 @@ Group:		X11/Applications/Multimedia
 # From kdeextragear-2 kde cvs module
 #Source0:	ftp://ftp.pld-linux.org/software/kde/%{name}-%{_snap}.tar.bz2
 Source0:        http://www.xs4all.nl/~jjvrieze/%{name}-%{version}-%{_rc}.tar.bz2
-# Source0-md5:	9df8b3dcd6a2e8525658716e480067d6
+# Source0-md5:	6f5a89baf765ebb368b48158e523ce57
 Patch0:		%{name}-mimetypes.patch
 URL:		http://www.xs4all.nl/~jjvrieze/kmplayer.html
 BuildRequires:	arts-qt-devel
