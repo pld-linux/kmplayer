@@ -1,17 +1,17 @@
 
 %define		_ver	0.8.1
-%define		_snap	031116
+%define		_snap	031209
 
 Summary:	A KDE mplayer frontend
 Summary(pl):	Frontend do mplayera pod KDE
 Name:		kmplayer
-Version:	0.8.1.%{_snap}
+Version:	%{_ver}.%{_snap}
 Release:	1
 License:	GPL
 Group:		X11/Applications/Multimedia
 # From kdeextragear-2 kde cvs module
 Source0:	http://www.kernel.pl/~adgor/kde/%{name}-%{_snap}.tar.bz2
-# Source0-md5:	8da645769c01f725d41e6403f0873258
+# Source0-md5:	cf9ead4994fd50784bfd46c53643003c
 Patch0:		%{name}-mimetypes.patch
 URL:		http://www.xs4all.nl/~jjvrieze/kmplayer.html
 BuildRequires:	kdelibs-devel >= 9:3.1.92
@@ -46,13 +46,14 @@ rm -rf $RPM_BUILD_ROOT
 	DESTDIR=$RPM_BUILD_ROOT \
 	kde_htmldir=%{_kdedocdir} 	
 
-#%%find_lang	%{name}		--with-kde	
+%find_lang	%{name}		--with-kde	
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
-%files
+%files -f %{name}.lang
 %defattr(644,root,root,755)
+%doc kmplayer/{AUTHORS,ChangeLog,README,TODO}
 %attr(755,root,root) %{_bindir}/kmplayer
 %attr(755,root,root) %{_bindir}/kxineplayer
 %{_libdir}/libkdeinit_kmplayer.la
