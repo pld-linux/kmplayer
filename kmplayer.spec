@@ -20,6 +20,7 @@ BuildRequires:	artsc-devel
 BuildRequires:	kdelibs-devel >= 9:3.1.92
 BuildRequires:	rpmbuild(macros) >= 1.129	
 BuildRequires:	xine-lib-devel >= 1:1.0	
+BuildRequires:	unsermake
 Requires:	kdebase-core >= 9:3.1.90
 Requires:	mplayer
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
