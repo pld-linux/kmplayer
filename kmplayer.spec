@@ -2,12 +2,12 @@
 Summary:	A KDE mplayer frontend
 Summary(pl):	Frontend do mplayera pod KDE
 Name:		kmplayer
-Version:	0.7.97
+Version:	0.8a
 Release:	1
 License:	GPL
 Group:		X11/Applications/Multimedia
 Source0:	http://www.xs4all.nl/~jjvrieze/%{name}-%{version}.tar.bz2
-# Source0-md5:	fab9e349fa4beccb4b35693c4311570f
+# Source0-md5:	c385b3bcb4b0c9be82be525cd6e9413a
 Patch0:		%{name}-desktop.patch
 URL:		http://www.xs4all.nl/~jjvrieze/kmplayer.html
 BuildRequires:	kdelibs-devel >= 3.1	
@@ -49,13 +49,12 @@ install -d $RPM_BUILD_ROOT%{_desktopdir}
 mv $RPM_BUILD_ROOT%{_applnkdir}/Multimedia/kmplayer.desktop \
     $RPM_BUILD_ROOT%{_desktopdir}
 
-#%%find_lang	%{name}		--with-kde	
+%find_lang	%{name}		--with-kde	
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
-#%%files -f %{name}.lang
-%files
+%files -f %{name}.lang
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/kmplayer
 %attr(755,root,root) %{_bindir}/kxineplayer
