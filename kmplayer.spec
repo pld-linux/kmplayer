@@ -1,5 +1,7 @@
 
-%bcond_with koffice	# Build koffice plugin
+%bcond_without gstreamer	# Do not build kgstplayer
+%bcond_with koffice		# Build koffice plugin
+%bcond_without xine		# Do not build kxineplayer
 
 Summary:	A KDE MPlayer/Xine/ffmpeg/ffserver/VDR frontend
 Summary(pl):	Frontend dla programów MPlayer/Xine/ffmpeg/ffserver/VDR pod KDE
@@ -17,13 +19,13 @@ Source0:        http://www.xs4all.nl/~jjvrieze/%{name}-%{version}.tar.bz2
 URL:		http://www.xs4all.nl/~jjvrieze/kmplayer.html
 BuildRequires:	arts-qt-devel
 BuildRequires:	artsc-devel
-BuildRequires:	gstreamer-plugins-devel
+%{?with_gstreamer:BuildRequires:	gstreamer-plugins-devel}
 BuildRequires:	kdelibs-devel >= 9:3.1.92
 %{?with_koffice:BuildRequires:	koffice-devel}
 BuildRequires:	rpmbuild(macros) >= 1.129	
 BuildRequires:	sed >= 4.0
-BuildRequires:	xine-lib-devel >= 1:1.0	
-BuildRequires:	unsermake
+%{?with_xine:BuildRequires:	xine-lib-devel >= 1:1.0}
+#BuildRequires:	unsermake
 Requires:	kdebase-core >= 9:3.1.90
 Requires:	kdelibs >= 9:3.3.0-2
 Requires:	mplayer
@@ -68,6 +70,8 @@ cp /usr/share/automake/config.sub admin
 	--disable-rpath \
 	--enable-final \
 	%{?with_koffice:--enable-koffice-plugin} \
+	%{!?with_gstreamer:--without-gstreamer} \
+	%{!?with_xine:--without-xine} \
 	--with-qt-libraries=%{_libdir}
 
 %{__make}
@@ -90,9 +94,9 @@ rm -rf $RPM_BUILD_ROOT
 %files -f %{name}.lang
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog README
-%attr(755,root,root) %{_bindir}/kgstplayer
+%{?with_gstreamer:%attr(755,root,root) %{_bindir}/kgstplayer}
 %attr(755,root,root) %{_bindir}/kmplayer
-%attr(755,root,root) %{_bindir}/kxineplayer
+%{?with_xine:%attr(755,root,root) %{_bindir}/kxineplayer}
 %attr(755,root,root) %{_bindir}/kxvplayer
 %{_libdir}/libkdeinit_kmplayer.la
 %attr(755,root,root) %{_libdir}/libkdeinit_kmplayer.so
