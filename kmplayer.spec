@@ -8,7 +8,7 @@
 Summary:	A KDE mplayer frontend
 Summary(pl):	Frontend do mplayera pod KDE
 Name:		kmplayer
-Version:	%{_ver}.%{_snap}
+Version:	%{_ver}
 Release:	0.%{_snap}.1
 Epoch:		1
 License:	GPL
