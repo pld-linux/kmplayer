@@ -14,6 +14,7 @@ Requires:	mplayer
 Requires:	kdelibs >= 3.1
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
+%define		_prefix		/usr/X11R6
 %define		_htmldir	/usr/share/doc/kde/HTML
 
 %description
