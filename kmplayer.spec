@@ -1,18 +1,18 @@
+
 Summary:	A KDE mplayer frontend
 Summary(pl):	Frontend do mplayera pod KDE
 Name:		kmplayer
-Version:	0.7.3
-Release:	2
+Version:	0.7.4
+Release:	1
 License:	GPL
 Group:		X11/Applications/Multimedia
 Source0:	http://www.xs4all.nl/~jjvrieze/%{name}-%{version}.tar.bz2
-Source1:	%{name}.png
 Patch0:		%{name}-desktop.patch
 URL:		http://www.xs4all.nl/~jjvrieze/kmplayer.html
 BuildRequires:	kdelibs-devel >= 3.1	
 BuildRequires:	mplayer
 Requires:	mplayer
-Requires:	kdelibs >= 3.1
+Requires:	kdelibs >= 3.2
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_htmldir	%{_docdir}/kde/HTML
@@ -40,9 +40,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %{__make} install DESTDIR=$RPM_BUILD_ROOT
 
-install -d $RPM_BUILD_ROOT{%{_desktopdir},%{_pixmapsdir}}
-
-install %{SOURCE1} $RPM_BUILD_ROOT%{_pixmapsdir}
+install -d $RPM_BUILD_ROOT%{_desktopdir}
 
 mv $RPM_BUILD_ROOT%{_applnkdir}/Multimedia/kmplayer.desktop \
     $RPM_BUILD_ROOT%{_desktopdir}
@@ -65,4 +63,4 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/mimelnk/video/x-ms-wmv.desktop
 %{_datadir}/services/kmplayer_component.desktop
 %{_desktopdir}/kmplayer.desktop
-%{_pixmapsdir}/kmplayer.png
+%{_pixmapsdir}/[!l]*/*/apps/kmplayer.png
