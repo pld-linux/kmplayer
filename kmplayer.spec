@@ -17,6 +17,8 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 %define		_prefix		/usr/X11R6
 %define		_htmldir	/usr/share/doc/kde/HTML
 
+%define         no_install_post_chrpath         1
+
 %description
 A powerful, fully integrated with KDE mplayer GUI.
 
