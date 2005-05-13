@@ -111,8 +111,8 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/mimelnk/application/x-kmplayer.desktop
 %{_datadir}/mimelnk/video/x-ms-wmp.desktop
 %{_datadir}/services/kmplayer_part.desktop
-%{_datadir}/mimelnk/application/x-mplayer2.desktop
 # Already in kdelibs
+#%{_datadir}/mimelnk/application/x-mplayer2.desktop
 #%{_datadir}/mimelnk/audio/x-ms-wma.desktop
 #%{_datadir}/mimelnk/video/x-ms-wmv.desktop
 #%{_datadir}/services/mms.protocol
