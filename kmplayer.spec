@@ -27,7 +27,7 @@ BuildRequires:	sed >= 4.0
 %{?with_xine:BuildRequires:	xine-lib-devel >= 1:1.0}
 #BuildRequires:	unsermake
 Requires:	kdebase-core >= 9:3.1.90
-Requires:	kdelibs >= 9:3.3.0-2
+Requires:	kdelibs >= 9:3.4.0-4
 Requires:	mplayer
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
