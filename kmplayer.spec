@@ -3,18 +3,20 @@
 %bcond_with koffice		# Build koffice plugin
 %bcond_without xine		# Do not build kxineplayer
 
+%define		_pre	pre4
+
 Summary:	A KDE MPlayer/Xine/ffmpeg/ffserver/VDR frontend
 Summary(pl):	Frontend dla programów MPlayer/Xine/ffmpeg/ffserver/VDR pod KDE
 Name:		kmplayer
-Version:	0.8.4b
-Release:	1
+Version:	0.9.0
+Release:	0.%{_pre}
 Epoch:		2
 License:	GPL
 Group:		X11/Applications/Multimedia
 # From kdeextragear-2 kde cvs module
 #Source0:	ftp://ftp.pld-linux.org/software/kde/%{name}-%{_snap}.tar.bz2
-Source0:        http://www.xs4all.nl/~jjvrieze/%{name}-%{version}.tar.bz2
-# Source0-md5:	e681ea15e1ce65b59b613aab1c80aa7b
+Source0:        http://www.xs4all.nl/~jjvrieze/%{name}-%{version}-%{_pre}.tar.bz2
+# Source0-md5:	c3e51cf8035f4a432f7c7f3c85f48adc
 #Patch0:		%{name}-mimetypes.patch
 URL:		http://www.xs4all.nl/~jjvrieze/kmplayer.html
 BuildRequires:	arts-qt-devel
@@ -52,7 +54,7 @@ Kmplayer integration with Koffice.
 Integracja kmplayera z koffice.
 
 %prep
-%setup -q
+%setup -q -n %{name}-%{version}-%{_pre}
 
 %{__sed} -i -e 's/Categories=.*/Categories=Qt;KDE;AudioVideo;Player;/' \
         src/kmplayer.desktop \
@@ -86,12 +88,12 @@ rm -rf $RPM_BUILD_ROOT
 # remove bogus translation
 rm -rf $RPM_BUILD_ROOT%{_datadir}/locale/xx
 
-%find_lang	%{name}		--with-kde	
+#%find_lang	%{name}		--with-kde	
 
 %clean
 rm -rf $RPM_BUILD_ROOT
-
-%files -f %{name}.lang
+#%files -f %{name}.lang
+%files
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog README
 %{?with_gstreamer:%attr(755,root,root) %{_bindir}/kgstplayer}
@@ -111,13 +113,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/mimelnk/application/x-kmplayer.desktop
 %{_datadir}/mimelnk/video/x-ms-wmp.desktop
 %{_datadir}/services/kmplayer_part.desktop
-# Already in kdelibs
-#%{_datadir}/mimelnk/application/x-mplayer2.desktop
-#%{_datadir}/mimelnk/audio/x-ms-wma.desktop
-#%{_datadir}/mimelnk/video/x-ms-wmv.desktop
-#%{_datadir}/services/mms.protocol
-#%{_datadir}/services/pnm.protocol
-#%{_datadir}/services/rtsp.protocol
+%{_datadir}/mimelnk/application/x-mplayer2.desktop
 %{_desktopdir}/kde/kmplayer.desktop
 %{_iconsdir}/[!l]*/*/apps/kmplayer.*
 
