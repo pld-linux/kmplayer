@@ -3,20 +3,18 @@
 %bcond_with koffice		# Build koffice plugin
 %bcond_without xine		# Do not build kxineplayer
 
-%define		_pre	pre4
-
 Summary:	A KDE MPlayer/Xine/ffmpeg/ffserver/VDR frontend
 Summary(pl):	Frontend dla programów MPlayer/Xine/ffmpeg/ffserver/VDR pod KDE
 Name:		kmplayer
-Version:	0.9.0
-Release:	0.%{_pre}
+Version:	0.9.0a
+Release:	0.1
 Epoch:		2
 License:	GPL
 Group:		X11/Applications/Multimedia
 # From kdeextragear-2 kde cvs module
 #Source0:	ftp://ftp.pld-linux.org/software/kde/%{name}-%{_snap}.tar.bz2
-Source0:        http://www.xs4all.nl/~jjvrieze/%{name}-%{version}-%{_pre}.tar.bz2
-# Source0-md5:	c3e51cf8035f4a432f7c7f3c85f48adc
+Source0:        http://www.xs4all.nl/~jjvrieze/%{name}-%{version}.tar.bz2
+# Source0-md5:	c6d5203bf1bfe5d2f1a5fb9f3b048c74
 #Patch0:		%{name}-mimetypes.patch
 URL:		http://www.xs4all.nl/~jjvrieze/kmplayer.html
 BuildRequires:	arts-qt-devel
@@ -54,7 +52,7 @@ Kmplayer integration with Koffice.
 Integracja kmplayera z koffice.
 
 %prep
-%setup -q -n %{name}-%{version}-%{_pre}
+%setup -q
 
 %{__sed} -i -e 's/Categories=.*/Categories=Qt;KDE;AudioVideo;Player;/' \
         src/kmplayer.desktop \
