@@ -1,7 +1,7 @@
 
-%bcond_without gstreamer	# Do not build kgstplayer
-%bcond_with koffice		# Build koffice plugin
-%bcond_without xine		# Do not build kxineplayer
+%bcond_without	gstreamer	# Do not build kgstplayer
+%bcond_with	koffice		# Build koffice plugin
+%bcond_without	xine		# Do not build kxineplayer
 
 Summary:	A KDE MPlayer/Xine/ffmpeg/ffserver/VDR frontend
 Summary(pl):	Frontend dla programów MPlayer/Xine/ffmpeg/ffserver/VDR pod KDE
