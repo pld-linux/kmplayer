@@ -1,20 +1,22 @@
+#
+# Conditional build:
+%bcond_without	gstreamer	# Do not build kgstplayer
+%bcond_with	koffice		# Build koffice plugin
+%bcond_without	xine		# Do not build kxineplayer
 
-%bcond_without gstreamer	# Do not build kgstplayer
-%bcond_with koffice		# Build koffice plugin
-%bcond_without xine		# Do not build kxineplayer
-
+%define	_pre	pre1
 Summary:	A KDE MPlayer/Xine/ffmpeg/ffserver/VDR frontend
 Summary(pl):	Frontend dla programów MPlayer/Xine/ffmpeg/ffserver/VDR pod KDE
 Name:		kmplayer
-Version:	0.9.0a
-Release:	0.1
+Version:	0.9.1
+Release:	0.%{_pre}.1
 Epoch:		2
 License:	GPL
 Group:		X11/Applications/Multimedia
 # From kdeextragear-2 kde cvs module
 #Source0:	ftp://ftp.pld-linux.org/software/kde/%{name}-%{_snap}.tar.bz2
-Source0:        http://www.xs4all.nl/~jjvrieze/%{name}-%{version}.tar.bz2
-# Source0-md5:	c6d5203bf1bfe5d2f1a5fb9f3b048c74
+Source0:	http://www.xs4all.nl/~jjvrieze/%{name}-%{version}-%{_pre}.tar.bz2
+# Source0-md5:	b82f729fc99967cf76d92a78f241e164
 #Patch0:		%{name}-mimetypes.patch
 URL:		http://www.xs4all.nl/~jjvrieze/kmplayer.html
 BuildRequires:	arts-qt-devel
@@ -22,7 +24,7 @@ BuildRequires:	artsc-devel
 %{?with_gstreamer:BuildRequires:	gstreamer-plugins-devel}
 BuildRequires:	kdelibs-devel >= 9:3.1.92
 %{?with_koffice:BuildRequires:	koffice-devel}
-BuildRequires:	rpmbuild(macros) >= 1.129	
+BuildRequires:	rpmbuild(macros) >= 1.129
 BuildRequires:	sed >= 4.0
 %{?with_xine:BuildRequires:	xine-lib-devel >= 1:1.0}
 #BuildRequires:	unsermake
@@ -52,7 +54,7 @@ Kmplayer integration with Koffice.
 Integracja kmplayera z koffice.
 
 %prep
-%setup -q
+%setup -q -n %{name}-%{version}-%{_pre}
 
 %{__sed} -i -e 's/Categories=.*/Categories=Qt;KDE;AudioVideo;Player;/' \
         src/kmplayer.desktop \
@@ -64,7 +66,7 @@ cp /usr/share/automake/config.sub admin
 
 #export UNSERMAKE=/usr/share/unsermake/unsermake
 
-#%{__make} -f admin/Makefile.common cvs 
+#%{__make} -f admin/Makefile.common cvs
 
 %configure \
 	--disable-rpath \
@@ -86,7 +88,7 @@ rm -rf $RPM_BUILD_ROOT
 # remove bogus translation
 rm -rf $RPM_BUILD_ROOT%{_datadir}/locale/xx
 
-#%find_lang	%{name}		--with-kde	
+#%find_lang	%{name}		--with-kde
 
 %clean
 rm -rf $RPM_BUILD_ROOT
