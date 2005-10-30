@@ -6,22 +6,23 @@
 Summary:	A KDE MPlayer/Xine/ffmpeg/ffserver/VDR frontend
 Summary(pl):	Frontend dla programów MPlayer/Xine/ffmpeg/ffserver/VDR pod KDE
 Name:		kmplayer
-Version:	0.8.4b
+Version:	0.9.1
 Release:	1
 Epoch:		2
 License:	GPL
 Group:		X11/Applications/Multimedia
-# From kdeextragear-2 kde cvs module
-#Source0:	ftp://ftp.pld-linux.org/software/kde/%{name}-%{_snap}.tar.bz2
-Source0:        http://www.xs4all.nl/~jjvrieze/%{name}-%{version}.tar.bz2
-# Source0-md5:	e681ea15e1ce65b59b613aab1c80aa7b
+Source0:	http://kmplayer.kde.org/pkgs/%{name}-%{version}.tar.bz2
+# Source0-md5:	882085013eacf65704f1b83963f0a338
 #Patch0:		%{name}-mimetypes.patch
-URL:		http://www.xs4all.nl/~jjvrieze/kmplayer.html
+URL:		http://kmplayer.kde.org/
 BuildRequires:	arts-qt-devel
 BuildRequires:	artsc-devel
-%{?with_gstreamer:BuildRequires:	gstreamer-plugins-devel}
+BuildRequires:	automake
+BuildRequires:	gettext-devel
+%{?with_gstreamer:BuildRequires:	gstreamer-plugins-devel >= 0.8.6}
 BuildRequires:	kdelibs-devel >= 9:3.1.92
 %{?with_koffice:BuildRequires:	koffice-devel}
+BuildRequires:	pkgconfig
 BuildRequires:	rpmbuild(macros) >= 1.129	
 BuildRequires:	sed >= 4.0
 %{?with_xine:BuildRequires:	xine-lib-devel >= 1:1.0}
@@ -86,7 +87,7 @@ rm -rf $RPM_BUILD_ROOT
 # remove bogus translation
 rm -rf $RPM_BUILD_ROOT%{_datadir}/locale/xx
 
-%find_lang	%{name}		--with-kde	
+%find_lang %{name} --with-kde
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -108,7 +109,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/kde3/libkmplayerpart.so
 %{_datadir}/apps/kmplayer
 %{_datadir}/config/kmplayerrc
-%{_datadir}/mimelnk/application/x-kmplayer.desktop
+%{_datadir}/mimelnk/application/x-*.desktop
 %{_datadir}/mimelnk/video/x-ms-wmp.desktop
 %{_datadir}/services/kmplayer_part.desktop
 # Already in kdelibs
