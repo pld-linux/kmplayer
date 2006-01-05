@@ -63,8 +63,6 @@ Integracja kmplayera z koffice.
 %build
 cp /usr/share/automake/config.sub admin
 
-#export UNSERMAKE=/usr/share/unsermake/unsermake
-
 #%{__make} -f admin/Makefile.common cvs 
 
 %configure \
@@ -86,6 +84,9 @@ rm -rf $RPM_BUILD_ROOT
 
 # remove bogus translation
 rm -rf $RPM_BUILD_ROOT%{_datadir}/locale/xx
+
+# already in kdelibs
+rm $RPM_BUILD_ROOT%{_datadir}/mimelnk/application/x-mplayer2.desktop
 
 %find_lang %{name} --with-kde
 
@@ -112,13 +113,6 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/mimelnk/application/x-kmplayer.desktop
 %{_datadir}/mimelnk/video/x-ms-wmp.desktop
 %{_datadir}/services/kmplayer_part.desktop
-# Already in kdelibs
-#%{_datadir}/mimelnk/application/x-mplayer2.desktop
-#%{_datadir}/mimelnk/audio/x-ms-wma.desktop
-#%{_datadir}/mimelnk/video/x-ms-wmv.desktop
-#%{_datadir}/services/mms.protocol
-#%{_datadir}/services/pnm.protocol
-#%{_datadir}/services/rtsp.protocol
 %{_desktopdir}/kde/kmplayer.desktop
 %{_iconsdir}/[!l]*/*/apps/kmplayer.*
 
