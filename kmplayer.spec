@@ -109,7 +109,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/kde3/libkmplayerpart.so
 %{_datadir}/apps/kmplayer
 %{_datadir}/config/kmplayerrc
-%{_datadir}/mimelnk/application/x-*.desktop
+%{_datadir}/mimelnk/application/x-kmplayer.desktop
 %{_datadir}/mimelnk/video/x-ms-wmp.desktop
 %{_datadir}/services/kmplayer_part.desktop
 # Already in kdelibs
