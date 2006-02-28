@@ -23,10 +23,10 @@ BuildRequires:	gettext-devel
 BuildRequires:	kdelibs-devel >= 9:3.1.92
 %{?with_koffice:BuildRequires:	koffice-devel}
 BuildRequires:	pkgconfig
-BuildRequires:	rpmbuild(macros) >= 1.129	
+BuildRequires:	rpmbuild(macros) >= 1.129
 BuildRequires:	sed >= 4.0
-%{?with_xine:BuildRequires:	xine-lib-devel >= 1:1.0}
 #BuildRequires:	unsermake
+%{?with_xine:BuildRequires:	xine-lib-devel >= 1:1.0}
 Requires:	kdebase-core >= 9:3.1.90
 Requires:	kdelibs >= 9:3.4.0-4
 Requires:	mplayer
@@ -63,7 +63,7 @@ Integracja kmplayera z koffice.
 %build
 cp /usr/share/automake/config.sub admin
 
-#%{__make} -f admin/Makefile.common cvs 
+#%{__make} -f admin/Makefile.common cvs
 
 %configure \
 	--disable-rpath \
