@@ -7,7 +7,7 @@ Summary:	A KDE MPlayer/Xine/ffmpeg/ffserver/VDR frontend
 Summary(pl):	Frontend dla programów MPlayer/Xine/ffmpeg/ffserver/VDR pod KDE
 Name:		kmplayer
 Version:	0.9.1b
-Release:	1
+Release:	2
 Epoch:		2
 License:	GPL
 Group:		X11/Applications/Multimedia
@@ -40,10 +40,23 @@ GUI.
 W pe³ni zintegrowany z KDE frontend dla programów
 MPlayer/Xine/ffmpeg/ffserver/VDR.
 
+%package gstreamer
+Summary:	Gstreamer wrapper
+Summary(pl):	Wrapper gstreamera
+Group:		X11/Applications/Multimedia
+Requires:	%{name} = %{epoch}:%{version}-%{release}
+
+%description gstreamer
+Gstreamer wrapper.
+
+%description gstreamer -l pl
+Wrapper gstreamera.
+
 %package koffice
 Summary:	Kmplayer integration with Koffice
 Summary(pl):	Integracja kmplayera z koffice
 Group:		X11/Applications/Multimedia
+Requires:	%{name} = %{epoch}:%{version}-%{release}
 Requires:	koffice-common
 
 %description koffice
@@ -51,6 +64,18 @@ Kmplayer integration with Koffice.
 
 %description koffice -l pl
 Integracja kmplayera z koffice.
+
+%package xine
+Summary:	Xine wrapper
+Summary(pl):	Wrapper xine
+Group:		X11/Applications/Multimedia
+Requires:	%{name} = %{epoch}:%{version}-%{release}
+
+%description xine
+Xine wrapper.
+
+%description xine -l pl
+Wrapper xine.
 
 %prep
 %setup -q
@@ -96,9 +121,7 @@ rm -rf $RPM_BUILD_ROOT
 %files -f %{name}.lang
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog README
-%{?with_gstreamer:%attr(755,root,root) %{_bindir}/kgstplayer}
 %attr(755,root,root) %{_bindir}/kmplayer
-%{?with_xine:%attr(755,root,root) %{_bindir}/kxineplayer}
 %attr(755,root,root) %{_bindir}/kxvplayer
 %{_libdir}/libkdeinit_kmplayer.la
 %attr(755,root,root) %{_libdir}/libkdeinit_kmplayer.so
@@ -116,10 +139,22 @@ rm -rf $RPM_BUILD_ROOT
 %{_desktopdir}/kde/kmplayer.desktop
 %{_iconsdir}/[!l]*/*/apps/kmplayer.*
 
+%if %{with gstreamer}
+%files gstreamer
+%defattr(644,root,root,755)
+%attr(755,root,root) %{_bindir}/kgstplayer
+%endif
+
 %if %{with koffice}
 %files koffice
 %defattr(644,root,root,755)
 %{_libdir}/kde3/libkmplayerkofficepart.la
 %attr(755,root,root) %{_libdir}/kde3/libkmplayerkofficepart.so
 %{_datadir}/services/kmplayer_koffice.desktop
+%endif
+
+%if %{with xine}
+%files xine
+%defattr(644,root,root,755)
+%attr(755,root,root) %{_bindir}/kxineplayer
 %endif
