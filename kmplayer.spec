@@ -6,13 +6,13 @@
 Summary:	A KDE MPlayer/Xine/ffmpeg/ffserver/VDR frontend
 Summary(pl):	Frontend dla programów MPlayer/Xine/ffmpeg/ffserver/VDR pod KDE
 Name:		kmplayer
-Version:	0.9.2
+Version:	0.9.2a
 Release:	1
 Epoch:		2
 License:	GPL
 Group:		X11/Applications/Multimedia
 Source0:	http://kmplayer.kde.org/pkgs/%{name}-%{version}.tar.bz2
-# Source0-md5:	23020ec5425226953452bd46fa59337e
+# Source0-md5:	9e8ab1a03f80249c3ea9332a48817c32
 #Patch0:		%{name}-mimetypes.patch
 URL:		http://kmplayer.kde.org/
 BuildRequires:	arts-qt-devel
@@ -87,6 +87,7 @@ Wrapper xine.
 
 %build
 cp /usr/share/automake/config.sub admin
+%{__autoconf}
 
 #%{__make} -f admin/Makefile.common cvs
 
