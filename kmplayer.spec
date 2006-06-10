@@ -19,7 +19,7 @@ BuildRequires:	arts-qt-devel
 BuildRequires:	artsc-devel
 BuildRequires:	automake
 BuildRequires:	gettext-devel
-%{?with_gstreamer:BuildRequires:	gstreamer-plugins-devel >= 0.8.6}
+%{?with_gstreamer:BuildRequires:	gstreamer-plugins-base-devel >= 0.10.0}
 BuildRequires:	kdelibs-devel >= 9:3.1.92
 %{?with_koffice:BuildRequires:	koffice-devel}
 BuildRequires:	pkgconfig
