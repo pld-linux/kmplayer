@@ -1,0 +1,21 @@
+diff -urN kmplayer-0.9.2a.orig/src/kmplayerprocess.cpp kmplayer-0.9.2a/src/kmplayerprocess.cpp
+--- kmplayer-0.9.2a.orig/src/kmplayerprocess.cpp	2006-06-06 22:40:51.000000000 +0200
++++ kmplayer-0.9.2a/src/kmplayerprocess.cpp	2006-06-30 02:21:40.968983250 +0200
+@@ -735,12 +735,13 @@
+             QRegExp & m_sizeRegExp = patterns[MPlayerPreferencesPage::pat_size];
+             v->addText (out, true);
+             if (!m_source->processOutput (out)) {
+-                int movie_width = m_source->width ();
+-                if (movie_width <= 0 && m_sizeRegExp.search (out) > -1) {
+-                    movie_width = m_sizeRegExp.cap (1).toInt (&ok);
++                if (m_sizeRegExp.search (out) > -1) {
++                    int movie_width = m_sizeRegExp.cap (1).toInt (&ok);
+                     int movie_height = ok ? m_sizeRegExp.cap (2).toInt (&ok) : 0;
+-                    if (ok && movie_width > 0 && movie_height > 0)
++                    if (ok && movie_width > 0 && movie_height > 0) {
+                         m_source->setDimensions(m_mrl,movie_width,movie_height);
++			m_source->setAspect (m_mrl, 1.0*movie_width/movie_height);
++		    }
+                 } else if (m_startRegExp.search (out) > -1) {
+                     if (m_settings->mplayerpost090) {
+                         if (!m_tmpURL.isEmpty () && m_url != m_tmpURL) {
