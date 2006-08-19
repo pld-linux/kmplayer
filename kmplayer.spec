@@ -3,17 +3,18 @@
 %bcond_with	koffice		# Build koffice plugin
 %bcond_without	xine		# Do not build kxineplayer
 
+%define		_pre	pre2
 Summary:	A KDE MPlayer/Xine/ffmpeg/ffserver/VDR frontend
 Summary(pl):	Frontend dla programów MPlayer/Xine/ffmpeg/ffserver/VDR pod KDE
 Name:		kmplayer
 Version:	0.9.3
-Release:	0.pre1.1
+Release:	0.%{_pre}.1
 Epoch:		2
 License:	GPL
 Group:		X11/Applications/Multimedia
 # http://kmplayer.kde.org/pkgs/kmplayer-0.9.3-pre1.tar.bz2
-Source0:	http://kmplayer.kde.org/pkgs/%{name}-%{version}-pre1.tar.bz2
-# Source0-md5:	3ffac76bb38230894cb24206b66d1eb4
+Source0:	http://kmplayer.kde.org/pkgs/%{name}-%{version}-%{_pre}.tar.bz2
+# Source0-md5:	c42620bd0f1181ad78ec66900e78ce41
 #Patch0:		%{name}-mimetypes.patch
 Patch0:		%{name}-video-size.patch
 URL:		http://kmplayer.kde.org/
@@ -80,7 +81,7 @@ Xine wrapper.
 Wrapper xine.
 
 %prep
-%setup -q -n %{name}-%{version}-pre1
+%setup -q -n %{name}-%{version}-%{_pre}
 #%%patch0 -p1
 
 %{__sed} -i -e 's/Categories=.*/Categories=Qt;KDE;AudioVideo;Player;/' \
