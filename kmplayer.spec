@@ -111,7 +111,7 @@ rm -rf $RPM_BUILD_ROOT
 	kde_htmldir=%{_kdedocdir}
 
 # remove bogus translation
-rm -rf $RPM_BUILD_ROOT%{_datadir}/locale/xx
+rm -rf $RPM_BUILD_ROOT%{_datadir}/locale/{is,mt}
 
 # already in kdelibs
 rm $RPM_BUILD_ROOT%{_datadir}/mimelnk/application/x-mplayer2.desktop
