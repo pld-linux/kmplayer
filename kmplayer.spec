@@ -6,14 +6,13 @@
 Summary:	A KDE MPlayer/Xine/ffmpeg/ffserver/VDR frontend
 Summary(pl):	Frontend dla programów MPlayer/Xine/ffmpeg/ffserver/VDR pod KDE
 Name:		kmplayer
-Version:	0.9.3
-Release:	0.1
+Version:	0.9.2a
+Release:	2
 Epoch:		2
 License:	GPL
 Group:		X11/Applications/Multimedia
-# http://kmplayer.kde.org/pkgs/kmplayer-0.9.3-pre1.tar.bz2
 Source0:	http://kmplayer.kde.org/pkgs/%{name}-%{version}.tar.bz2
-# Source0-md5:	b5866658c62995185f3fb63f3804cfa2
+# Source0-md5:	9e8ab1a03f80249c3ea9332a48817c32
 #Patch0:		%{name}-mimetypes.patch
 Patch0:		%{name}-video-size.patch
 URL:		http://kmplayer.kde.org/
@@ -22,15 +21,15 @@ BuildRequires:	artsc-devel
 BuildRequires:	automake
 BuildRequires:	gettext-devel
 %{?with_gstreamer:BuildRequires:	gstreamer-plugins-base-devel >= 0.10.0}
-BuildRequires:	kdelibs-devel >= 9:3.5.3
+BuildRequires:	kdelibs-devel >= 9:3.1.92
 %{?with_koffice:BuildRequires:	koffice-devel}
 BuildRequires:	pkgconfig
 BuildRequires:	rpmbuild(macros) >= 1.129
 BuildRequires:	sed >= 4.0
 #BuildRequires:	unsermake
 %{?with_xine:BuildRequires:	xine-lib-devel >= 1:1.0}
-Requires:	kdebase-core >= 9:3.5.3
-Requires:	kdelibs >= 9:3.5.3
+Requires:	kdebase-core >= 9:3.1.90
+Requires:	kdelibs >= 9:3.4.0-4
 Requires:	mplayer
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -81,11 +80,12 @@ Wrapper xine.
 
 %prep
 %setup -q
-#%%patch0 -p1
+%patch0 -p1
 
 %{__sed} -i -e 's/Categories=.*/Categories=Qt;KDE;AudioVideo;Player;/' \
         src/kmplayer.desktop \
 
+#%patch0 -p1
 
 %build
 cp /usr/share/automake/config.sub admin
