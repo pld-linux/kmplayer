@@ -1,8 +1,9 @@
-
+#
+# Conditional build:
 %bcond_without	gstreamer	# Do not build kgstplayer
 %bcond_with	koffice		# Build koffice plugin
 %bcond_without	xine		# Do not build kxineplayer
-
+#
 Summary:	A KDE MPlayer/Xine/ffmpeg/ffserver/VDR frontend
 Summary(pl):	Frontend dla programów MPlayer/Xine/ffmpeg/ffserver/VDR pod KDE
 Name:		kmplayer
@@ -14,11 +15,10 @@ Group:		X11/Applications/Multimedia
 # http://kmplayer.kde.org/pkgs/kmplayer-0.9.3-pre1.tar.bz2
 Source0:	http://kmplayer.kde.org/pkgs/%{name}-%{version}.tar.bz2
 # Source0-md5:	b5866658c62995185f3fb63f3804cfa2
-#Patch0:		%{name}-mimetypes.patch
-Patch0:		%{name}-video-size.patch
 URL:		http://kmplayer.kde.org/
 BuildRequires:	arts-qt-devel
 BuildRequires:	artsc-devel
+BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	gettext-devel
 %{?with_gstreamer:BuildRequires:	gstreamer-plugins-base-devel >= 0.10.0}
@@ -27,7 +27,6 @@ BuildRequires:	kdelibs-devel >= 9:3.5.3
 BuildRequires:	pkgconfig
 BuildRequires:	rpmbuild(macros) >= 1.129
 BuildRequires:	sed >= 4.0
-#BuildRequires:	unsermake
 %{?with_xine:BuildRequires:	xine-lib-devel >= 1:1.0}
 Requires:	kdebase-core >= 9:3.5.3
 Requires:	kdelibs >= 9:3.5.3
@@ -81,11 +80,9 @@ Wrapper xine.
 
 %prep
 %setup -q
-#%%patch0 -p1
 
 %{__sed} -i -e 's/Categories=.*/Categories=Qt;KDE;AudioVideo;Player;/' \
-        src/kmplayer.desktop \
-
+	src/kmplayer.desktop
 
 %build
 cp /usr/share/automake/config.sub admin
