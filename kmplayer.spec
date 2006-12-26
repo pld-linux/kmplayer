@@ -15,6 +15,7 @@ Group:		X11/Applications/Multimedia
 # http://kmplayer.kde.org/pkgs/kmplayer-0.9.3-pre1.tar.bz2
 Source0:	http://kmplayer.kde.org/pkgs/%{name}-%{version}.tar.bz2
 # Source0-md5:	d18749a254af3d54dd10ce651975527c
+Patch0:		kde-common-PLD.patch
 URL:		http://kmplayer.kde.org/
 BuildRequires:	arts-qt-devel
 BuildRequires:	artsc-devel
@@ -80,6 +81,7 @@ Wrapper xine.
 
 %prep
 %setup -q
+%patch0 -p1
 
 %{__sed} -i -e 's/Categories=.*/Categories=Qt;KDE;AudioVideo;Player;/' \
 	src/kmplayer.desktop
