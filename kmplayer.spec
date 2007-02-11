@@ -90,9 +90,8 @@ Wrapper xine.
 
 %build
 cp /usr/share/automake/config.sub admin
-%{__autoconf}
 
-#%{__make} -f admin/Makefile.common cvs
+%{__make} -f admin/Makefile.common cvs
 
 %configure \
 	--disable-rpath \
