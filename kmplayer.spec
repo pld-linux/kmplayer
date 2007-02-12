@@ -5,7 +5,7 @@
 %bcond_without	xine		# Do not build kxineplayer
 #
 Summary:	A KDE MPlayer/Xine/ffmpeg/ffserver/VDR frontend
-Summary(pl):	Frontend dla programÛw MPlayer/Xine/ffmpeg/ffserver/VDR pod KDE
+Summary(pl.UTF-8):   Frontend dla program√≥w MPlayer/Xine/ffmpeg/ffserver/VDR pod KDE
 Name:		kmplayer
 Version:	0.9.3a
 Release:	2
@@ -39,25 +39,25 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 A powerful, fully integrated with KDE MPlayer/Xine/ffmpeg/ffserver/VDR
 GUI.
 
-%description -l pl
-W pe≥ni zintegrowany z KDE frontend dla programÛw
+%description -l pl.UTF-8
+W pe≈Çni zintegrowany z KDE frontend dla program√≥w
 MPlayer/Xine/ffmpeg/ffserver/VDR.
 
 %package gstreamer
 Summary:	Gstreamer wrapper
-Summary(pl):	Wrapper gstreamera
+Summary(pl.UTF-8):   Wrapper gstreamera
 Group:		X11/Applications/Multimedia
 Requires:	%{name} = %{epoch}:%{version}-%{release}
 
 %description gstreamer
 Gstreamer wrapper.
 
-%description gstreamer -l pl
+%description gstreamer -l pl.UTF-8
 Wrapper gstreamera.
 
 %package koffice
 Summary:	Kmplayer integration with Koffice
-Summary(pl):	Integracja kmplayera z koffice
+Summary(pl.UTF-8):   Integracja kmplayera z koffice
 Group:		X11/Applications/Multimedia
 Requires:	%{name} = %{epoch}:%{version}-%{release}
 Requires:	koffice-common
@@ -65,19 +65,19 @@ Requires:	koffice-common
 %description koffice
 Kmplayer integration with Koffice.
 
-%description koffice -l pl
+%description koffice -l pl.UTF-8
 Integracja kmplayera z koffice.
 
 %package xine
 Summary:	Xine wrapper
-Summary(pl):	Wrapper xine
+Summary(pl.UTF-8):   Wrapper xine
 Group:		X11/Applications/Multimedia
 Requires:	%{name} = %{epoch}:%{version}-%{release}
 
 %description xine
 Xine wrapper.
 
-%description xine -l pl
+%description xine -l pl.UTF-8
 Wrapper xine.
 
 %prep
