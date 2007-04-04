@@ -7,14 +7,14 @@
 Summary:	A KDE MPlayer/Xine/ffmpeg/ffserver/VDR frontend
 Summary(pl.UTF-8):	Frontend dla programów MPlayer/Xine/ffmpeg/ffserver/VDR pod KDE
 Name:		kmplayer
-Version:	0.9.4
+Version:	0.9.4a
 Release:	1
 Epoch:		2
 License:	GPL
 Group:		X11/Applications/Multimedia
 # http://kmplayer.kde.org/pkgs/kmplayer-0.9.3-pre1.tar.bz2
 Source0:	http://kmplayer.kde.org/pkgs/%{name}-%{version}.tar.bz2
-# Source0-md5:	0d2a199290f7d4c470ea89df42d527ec
+# Source0-md5:	10eeb318a4800e4cfa74957c7a6714da
 Patch0:		kde-common-PLD.patch
 Patch1:		kde-ac260-lt.patch
 URL:		http://kmplayer.kde.org/
