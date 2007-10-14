@@ -8,7 +8,7 @@ Summary:	A KDE MPlayer/Xine/ffmpeg/ffserver/VDR frontend
 Summary(pl.UTF-8):	Frontend dla programów MPlayer/Xine/ffmpeg/ffserver/VDR pod KDE
 Name:		kmplayer
 Version:	0.10.0
-Release:	1
+Release:	2
 Epoch:		2
 License:	GPL
 Group:		X11/Applications/Multimedia
@@ -127,6 +127,7 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog README
 %attr(755,root,root) %{_bindir}/kmplayer
+%attr(755,root,root) %{_bindir}/knpplayer
 %attr(755,root,root) %{_bindir}/kxvplayer
 %{_libdir}/libkdeinit_kmplayer.la
 %attr(755,root,root) %{_libdir}/libkdeinit_kmplayer.so
