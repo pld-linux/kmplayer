@@ -94,6 +94,7 @@ cp /usr/share/automake/config.sub admin
 
 %{__make} -f admin/Makefile.common cvs
 
+CPPFLAGS="$CPPFLAGS -I/usr/include/nspr"
 %configure \
 	--disable-rpath \
 	--enable-final \
