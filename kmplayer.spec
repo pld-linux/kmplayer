@@ -8,7 +8,7 @@ Summary:	A KDE MPlayer/Xine/ffmpeg/ffserver/VDR frontend
 Summary(pl.UTF-8):	Frontend dla programów MPlayer/Xine/ffmpeg/ffserver/VDR pod KDE
 Name:		kmplayer
 Version:	0.10.0c
-Release:	1
+Release:	2
 Epoch:		2
 License:	GPL
 Group:		X11/Applications/Multimedia
@@ -17,20 +17,27 @@ Source0:	http://kmplayer.kde.org/pkgs/%{name}-%{version}.tar.bz2
 # Source0-md5:	3e76147784b2642891c9efbfe260e4c4
 Patch0:		kde-common-PLD.patch
 Patch1:		kde-ac260-lt.patch
+Patch2:		%{name}-flash.patch
 URL:		http://kmplayer.kde.org/
 BuildRequires:	arts-qt-devel
 BuildRequires:	artsc-devel
 BuildRequires:	autoconf
 BuildRequires:	automake
+BuildRequires:	dbus-qt-devel
+BuildRequires:	expat-devel
 BuildRequires:	gettext-devel
 %{?with_gstreamer:BuildRequires:	gstreamer-plugins-base-devel >= 0.10.0}
 BuildRequires:	kdelibs-devel >= 9:3.5.3
 %{?with_koffice:BuildRequires:	koffice-devel}
+BuildRequires:	libjpeg-devel
+BuildRequires:	libpng-devel
+BuildRequires:	nspr-devel
 BuildRequires:	pkgconfig
-BuildRequires:	rpmbuild(macros) >= 1.129
+BuildRequires:	rpmbuild(macros) >= 1.357
 BuildRequires:	sed >= 4.0
 %{?with_xine:BuildRequires:	xine-lib-devel >= 1:1.0}
 BuildRequires:	xorg-lib-libXv-devel
+BuildRequires:	zlib-devel
 Requires:	kdebase-core >= 9:3.5.3
 Requires:	kdelibs >= 9:3.5.3
 Requires:	mplayer
@@ -85,14 +92,19 @@ Wrapper xine.
 %setup -q
 %patch0 -p1
 %patch1 -p1
+%patch2 -p1
 
 %{__sed} -i -e 's/Categories=.*/Categories=Qt;KDE;AudioVideo;Player;/' \
 	src/kmplayer.desktop
+%{__sed} -i -e 's,plugin=/usr/lib/browser-plugins,plugin=%{_browserpluginsdir}', src/kmplayerrc
+
+mv configure{,.orig}
 
 %build
-cp /usr/share/automake/config.sub admin
-
-%{__make} -f admin/Makefile.common cvs
+if [ ! -f configure ]; then
+	cp /usr/share/automake/config.sub admin
+	%{__make} -f admin/Makefile.common cvs
+fi
 
 CPPFLAGS="$CPPFLAGS -I/usr/include/nspr"
 %configure \
@@ -101,6 +113,8 @@ CPPFLAGS="$CPPFLAGS -I/usr/include/nspr"
 	%{?with_koffice:--enable-koffice-plugin} \
 	%{!?with_gstreamer:--without-gstreamer} \
 	%{!?with_xine:--without-xine} \
+	--enable-expat \
+	--enable-npplayer \
 	--with-qt-libraries=%{_libdir}
 
 %{__make} -j1
