@@ -1,0 +1,10 @@
+--- kmplayer-0.10.0c/src/kmplayerrc~	2007-12-21 23:51:44.000000000 +0200
++++ kmplayer-0.10.0c/src/kmplayerrc	2008-01-05 18:56:22.366719172 +0200
+@@ -47,3 +47,7 @@
+ Profiles=Modem (32k);ISDN (64k);ISDN2 (128k);LAN (1024k)
+ 
+ [Recent Files]
++
++[application/x-shockwave-flash]
++player=npp
++plugin=/usr/lib/browser-plugins/libflashplayer.so
