@@ -109,7 +109,6 @@ fi
 CPPFLAGS="$CPPFLAGS -I/usr/include/nspr"
 %configure \
 	--disable-rpath \
-	--enable-final \
 	%{?with_koffice:--enable-koffice-plugin} \
 	%{!?with_gstreamer:--without-gstreamer} \
 	%{!?with_xine:--without-xine} \
